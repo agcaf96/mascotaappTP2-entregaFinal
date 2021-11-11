@@ -1,5 +1,5 @@
 import express from 'express'
-import {publicadorDeImagen} from '../src/modulos/publicadorDeImagen.js'
+import {publicadorDeImagen} from '../src/routers/publicadorDeImagen.js'
 
 const app = express()
 
