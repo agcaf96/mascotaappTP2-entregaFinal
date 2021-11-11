@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "name": "modulobase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node .",
+    "test": "node test/testLocalizador.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "fileupload": "^1.0.0",
+    "mongodb": "^4.1.4"
+  }
+}
