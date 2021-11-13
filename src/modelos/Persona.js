@@ -1,13 +1,14 @@
 
 import { Roles } from './Roles.js'
 class Persona {
-    constructor(id, nombre, edad, rol) {
+    constructor(id, nombre, edad, rol, email) {
         this.id = id
         this.setNombre(nombre)
         this.setEdad(edad)
         // this.setDireccion(direccion)
         this.setRol(rol)
         this.mascotas = []
+        this.setEmail(email)
     }
 
     setEdad(edad) {
@@ -44,6 +45,14 @@ class Persona {
         this.nombre = nombre
     }
 
+    setEmail(email) {
+        if (!email || email == '') {
+            throw new Error('el email no puede ser nulo ni vacío')
+        }
+        this.email = email
+    }
+
+
     asignarMascota(id) {
         this.mascotas.push(id)
     }
@@ -56,7 +65,7 @@ class Persona {
 }
 
 function fromDTO(dto) {
-    return new Persona(dto.id, dto.nombre, dto.edad, dto.rol, dto.mascotas)
+    return new Persona(dto.id, dto.nombre, dto.edad, dto.rol, dto.mascotas, dto.email)
 }
 
 function toDTO(persona) {
@@ -65,7 +74,8 @@ function toDTO(persona) {
         nombre: persona.nombre,
         edad: persona.edad,
         rol: persona.rol,
-        mascotas: persona.mascotas
+        mascotas: persona.mascotas, 
+        email: persona.email
     }
 }
 
