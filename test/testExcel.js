@@ -5,7 +5,7 @@ import { getDaoMascotas } from '../src/daos/DaoFactoryMascotas.js'
 //import { Roles } from '../src/modelos/Roles.js'
 import { getDaoPersonas } from '../src/daos/DaoFactoryPersonas.js'
 import { crearReporte } from '../src/casosDeUso/CrearReporte.js'
-import { buscarMascotasporUsuario } from '../src/casosDeUso/BuscarMascotasPorUsuario.js'
+import { buscarMascotasporUsuario } from '../src/casosDeUso/buscarMascotasPorUsuario.js'
 
 
 const daoMascotas = getDaoMascotas()
