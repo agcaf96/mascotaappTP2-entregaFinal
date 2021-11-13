@@ -1,14 +1,12 @@
-import FactoryLocalizador from '../servicios/modulos/factoryLocalizador.js'
-
+import { getLocalizador } from '../servicios/modulos/localizador/index.js'
 import { getDaoMascotas } from '../daos/DaoFactoryMascotas.js'
 
-const f = new FactoryLocalizador()
-const l = f.getLocalizador()
+const l = getLocalizador()
+const daoMascotas = getDaoMascotas()
 
 async function verDireDeListaMascotas(mascotas) {
 
     const arrayDire = []
-    const daoMascotas = getDaoMascotas()
 
     for (const idMascota of mascotas) {
         const mascotaBuscada = await daoMascotas.buscar(idMascota)
