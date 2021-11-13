@@ -6,3 +6,86 @@ PUT localhost:3000/api/mascotas/agregarUbicacion
 }
 
 -----------------------------------------
+Crear Mascota
+localhost:3000/api/mascotas
+
+{
+  
+   "nombre":"Truman", 
+   "edad":4, 
+   "especie": "perro", 
+   "color":"rubio", 
+   "sexo":"macho",
+   "idPersona":1
+}
+----------------------------------------
+Crear Usuario
+localhost:3000/api/personas
+
+{
+   "nombre":"Fede", 
+   "edad":34, 
+   "rol": "administrador"
+
+}
+-------------------------------------
+Asociar mascota a una persona
+localhost:3000/api/personas/agregarMascota
+
+{
+   "idmascota": 2, 
+   "idPersona": 1
+}
+-----------------------------------
+Busca lista de mascotas por usuario
+localhost:3000/api/personas/buscarMascotas
+
+
+{
+    "idPersona": 3
+}
+---------------------------------------
+Reporte de mascotas 
+localhost:3000/api/reporteExcel/reporteExcel
+
+{
+    "mascotas":[
+      {
+    "id": 4,
+    "nombre": "pepo",
+    "edad": 1,
+    "especie": "perro",
+    "color": "blanco",
+    "sexo": "macho",
+    "estado": "Publicado",
+    "imagen": ""
+  },
+  {
+    "id": 2,
+    "nombre": "pompon",
+    "edad": 5,
+    "especie": "gato",
+    "color": "gris",
+    "sexo": "macho",
+    "estado": "Publicado",
+    "imagen": "",
+    "ubicacion": {
+      "lat": -34.60669,
+      "lng": -58.429266
+    }
+  },
+  {
+    "id": 1,
+    "nombre": "Truman",
+    "edad": 4,
+    "especie": "perro",
+    "color": "rubio",
+    "sexo": "macho",
+    "estado": "Publicado",
+    "imagen": "",
+    "ubicacion": {}
+  }  
+    ],
+    "nombrePlanilla":"newExcel1",
+    "outputPath":"newExcel1"
+}
