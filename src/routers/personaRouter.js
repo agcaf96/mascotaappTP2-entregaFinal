@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { crearPersona } from '../casosDeUso/altaDePersona.js'
 import { asociarMascota } from '../casosDeUso/asociarMascotaAPersona.js'
 import {buscarMascotasporUsuario} from '../casosDeUso/buscarMascotasPorUsuario.js'
+import {confirmarRegistro} from '../casosDeUso/confirmarMailAlta.js'
 
 const personasRouter = Router()
 
@@ -33,6 +34,16 @@ personasRouter.get('/buscarMascotas', async (req, res) => {
     try {
         const mascotas = await buscarMascotasporUsuario(req.body.idPersona)
         res.json(mascotas)
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+})
+
+personasRouter.post('/confirmarMail', async (req, res) => {
+    try {
+        confirmarRegistro(req.body.idPersona)
+        res.json("confirmacion ok")
+
     } catch (error) {
         res.json({ error: error.message })
     }
