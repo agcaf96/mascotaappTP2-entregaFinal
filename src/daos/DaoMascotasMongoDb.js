@@ -11,7 +11,7 @@ const cnxStr = `mongodb+srv://${username}:${password}@${serverUrl}/${database}?r
 
 const client = new MongoClient(cnxStr, { useNewUrlParser: true, useUnifiedTopology: true })
 
-await client.connect()
+
 
 class DaoMascotasMongoDb extends DaoMascotas {
 
@@ -23,9 +23,13 @@ class DaoMascotasMongoDb extends DaoMascotas {
     async buscar(id) {
         let buscada
         try {
+            await client.connect()
             buscada = await this.mascotas.findOne({ id })
+            
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
+        }finally{
+            await client.close()
         }
 
         delete buscada._id
@@ -35,9 +39,12 @@ class DaoMascotasMongoDb extends DaoMascotas {
 
     async guardar(mascota) {
         try {
+            await client.connect()
             await this.mascotas.replaceOne({ id: mascota.id }, { ...mascota }, { upsert: true })
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
+        }finally{
+            await client.close()
         }
     }
 }
