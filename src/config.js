@@ -1,4 +1,7 @@
-
+const datosLocalizador = {
+    key : 'I4VtZIeQtVK89YMEBCl5lkRgHYUNaNez',
+    urlBase : 'http://open.mapquestapi.com/geocoding/v1/'
+}
 
 const tipoPers = 'DB'
 const tipoMasc = 'DB'
@@ -15,5 +18,6 @@ const db = {
 export {
     tipoPers,
     tipoMasc,
-    db
+    db, 
+    datosLocalizador
 }
