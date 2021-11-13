@@ -1,6 +1,6 @@
 import Email from "../modelos/Email.js";
 import { getDaoPersonas } from '../daos/DaoFactoryPersonas.js';
-import { getConfig } from "../modelos/index.js";
+import { getConfig } from "../modulos/confirmacionEmail/index.js";
 
 const daoPersonas = getDaoPersonas() 
 const env = getConfig()
