@@ -1,10 +1,9 @@
 import FactoryLocalizador from '../servicios/modulos/factoryLocalizador.js'
 
+import { getDaoMascotas } from '../daos/DaoFactoryMascotas.js'
+
 const f = new FactoryLocalizador()
 const l = f.getLocalizador()
-
-
-import { getDaoMascotas } from '../daos/DaoFactoryMascotas.js'
 
 async function verDireDeListaMascotas(mascotas) {
 
