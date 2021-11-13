@@ -3,10 +3,10 @@ import { getDaoPersonas } from '../daos/DaoFactoryPersonas.js'
 
 const daoPersona = getDaoPersonas();
 
-async function asociarMascota(mascota, idPersona) {
+async function asociarMascota(idmascota, idPersona) {
     const p = await daoPersona.buscar(idPersona)
     const p2 = await(fromDTO(p))
-    p2.asignarMascota(mascota.id)
+    p2.asignarMascota(idmascota)
     await daoPersona.guardar(toDTO(p2))
     
 }
