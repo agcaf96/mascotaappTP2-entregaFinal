@@ -1,9 +1,9 @@
 import Email from "../modelos/Email.js";
 import { getDaoPersonas } from '../daos/DaoFactoryPersonas.js';
-import { getConfig } from "../modulos/confirmacionEmail/index.js";
+import { getEnviadorDeMails } from "../modulos/confirmacionEmail/index.js";
 
 const daoPersonas = getDaoPersonas() 
-const env = getConfig()
+const env = getEnviadorDeMails()
 
 async function confirmarRegistro(idPersona){
 
