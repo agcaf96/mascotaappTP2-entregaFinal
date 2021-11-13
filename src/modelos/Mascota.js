@@ -1,5 +1,5 @@
 class Mascota {
-    constructor(id = null, nombre, edad, especie, color, sexo, ubicacion  = []) {
+    constructor(id = null, nombre, edad, especie, color, sexo, ubicacion  = {}) {
         this.id = id
         this.setNombre(nombre)
         this.setColor(color)

@@ -4,7 +4,8 @@ import { asociarFotoAMascota } from '../casosDeUso/agregoImagenMascota.js';
 
 const publicadorDeImagen = Router()
 
-const direccion = getCreateFileExtractor('./assets/recibidas')
+
+const direccion = getCreateFileExtractor()
 
      publicadorDeImagen.post('/',direccion, async (req, res) => {
         try {

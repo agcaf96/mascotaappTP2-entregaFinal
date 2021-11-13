@@ -8,7 +8,7 @@ class Persona {
         // this.setDireccion(direccion)
         this.setRol(rol)
         this.mascotas = []
-        this.setEmail(email)
+        this.email = email
     }
 
     setEdad(edad) {
