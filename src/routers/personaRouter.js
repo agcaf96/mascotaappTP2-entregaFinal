@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { crearPersona } from '../casosDeUso/altaDePersona.js'
 import { asociarMascota } from '../casosDeUso/asociarMascotaAPersona.js'
-import {buscarMascotasporUsuario} from '../casosDeUso/buscarMascotasPorUsuario.js'
+import { buscarMascotasporUsuario } from '../casosDeUso/buscarMascotasPorUsuario.js'
 
 const personasRouter = Router()
 
