@@ -10,7 +10,7 @@ async function buscarMascotasporUsuario(idPersona) {
     for (let index = 0; index < Persona.mascotas.length; index++) {
         masco.push(await daoMascotas.buscar(Persona.mascotas[index]))
     }
-    console.log(masco.length)
+ 
     return masco
 }
 
