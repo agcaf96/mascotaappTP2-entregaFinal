@@ -1,10 +1,10 @@
 import Router from  'express';
-import { createFileExtractorMiddleware } from '../modulos/recepcionDeFotos/recibeFoto.js'
+import { getCreateFileExtractor } from '../modulos/recepcionDeFotos/index.js'
 import { asociarFotoAMascota } from '../casosDeUso/agregoImagenMascota.js';
 
 const publicadorDeImagen = Router()
 
-const direccion = createFileExtractorMiddleware('./assets/recibidas')
+const direccion = getCreateFileExtractor('./assets/recibidas')
 
      publicadorDeImagen.post('/',direccion, async (req, res) => {
         try {
