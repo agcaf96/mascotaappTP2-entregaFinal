@@ -1,12 +1,11 @@
 import { fromDTO, toDTO } from '../modelos/Mascota.js'
-
-import FactoryLocalizador from '../servicios/modulos/factoryLocalizador.js'
+import FactoryLocalizador from '../modulos/localizador/factoryLocalizador.js'
+import { getDaoMascotas } from '../daos/DaoFactoryMascotas.js'
 
 const f = new FactoryLocalizador()
 
 const l = f.getLocalizador()
 
-import { getDaoMascotas } from '../src/daos/DaoFactoryMascotas.js'
 const daoMascotas = getDaoMascotas()
 
 async function asociarUbicacion(idMascota, direccion) {
