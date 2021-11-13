@@ -1,0 +1,8 @@
+PUT localhost:3000/api/mascotas/agregarUbicacion
+
+{
+    "idMascota": 1,
+    "direccion": "Yatay 249, Almagro, Capital Federal, Argentina"
+}
+
+-----------------------------------------

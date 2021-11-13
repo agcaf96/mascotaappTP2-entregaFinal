@@ -1,16 +1,8 @@
 import Localizador from './Localizador.js';
 import {datosLocalizador} from '../../config.js';
 
+const localizador = new Localizador(datosLocalizador.key, datosLocalizador.urlBase);
 
-class FactoryLocalizador {
-  constructor() {
-    this.key = datosLocalizador.key;
-    this.urlBase = datosLocalizador.urlBase
-  }
-
-  getLocalizador() {
-    return new Localizador(this.key, this.urlBase);
-  }
+export function  getLocalizador() {
+  return localizador
 }
-
-export default FactoryLocalizador 
