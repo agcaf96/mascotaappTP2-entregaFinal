@@ -11,7 +11,6 @@ try {
     
     console.log("mascota sin foto: ", mascota1)
 
-    console.log("agus");
     mascota1 = await asociarFotoAMascota(mascota1.id, `/assets/recibidas/${mascota1.id}.jpg`)
 
     console.log("mascota con foto: ", mascota1);
