@@ -1,5 +1,5 @@
 class Mascota {
-    constructor(id = null, nombre, edad, especie, color, sexo) {
+    constructor(id = null, nombre, edad, especie, color, sexo, ubicacion  = []) {
         this.id = id
         this.setNombre(nombre)
         this.setColor(color)
@@ -7,7 +7,8 @@ class Mascota {
         this.setEspecie(especie)
         this.setSexo(sexo)
         this.estado = 'Publicado';
-        this.imagen = "";
+        this.imagen = ""
+        this.ubicacion = ubicacion
     }
 
     setEdad(edad) {
@@ -50,6 +51,10 @@ class Mascota {
         this.imagen = imagen;
     }
 
+    asociarUbicacion(ubicacion) {
+        this.ubicacion = ubicacion
+    }
+
     static ultimoId = 0
 
     static nextId() {
@@ -58,7 +63,7 @@ class Mascota {
 }
 
 function fromDTO(dto) {
-    return new Mascota(dto.id, dto.nombre, dto.edad, dto.especie, dto.color, dto.sexo, dto.estado,dto.imagen )
+    return new Mascota(dto.id, dto.nombre, dto.edad, dto.especie, dto.color, dto.sexo, dto.estado,dto.imagen, dto.ubicacion )
 }
 
 function toDTO(mascota) {
@@ -70,7 +75,8 @@ function toDTO(mascota) {
         color: mascota.color,
         sexo: mascota.sexo,
         estado: mascota.estado,
-        imagen: mascota.imagen
+        imagen: mascota.imagen,
+        ubicacion: mascota.ubicacion
     }
 }
 
