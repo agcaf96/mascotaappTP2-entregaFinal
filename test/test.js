@@ -7,7 +7,7 @@ import { asociarFotoAMascota } from '../src/casosDeUso/agregoImagenMascota.js';
 
 try {
      const persona1 = await crearPersona( "mar", 35, Roles.Administrador)
-    let mascota1 = await crearMascota("pelusa", 2, "perro", "negro", "hembra", persona1)
+    let mascota1 = await crearMascota("pelusa", 2, "perro", "negro", "hembra", persona1.id)
     
     console.log("mascota sin foto: ", mascota1)
 
