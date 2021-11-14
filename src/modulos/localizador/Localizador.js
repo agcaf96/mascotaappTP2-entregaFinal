@@ -24,6 +24,7 @@ class Localizador {
     try {
       const promise = await axios.get(url).then((response) => response.data.results);
       const dire1 = promise[0]
+     
       calle = dire1.locations[0].street
     } catch (error) {
         throw new Error(`ERROR LOCALIZADOR: ${error.message}`)

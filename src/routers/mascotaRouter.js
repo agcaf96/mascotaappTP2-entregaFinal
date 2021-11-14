@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { crearMascota } from '../casosDeUso/altaDeMascota.js'
 import { asociarUbicacion } from '../casosDeUso/asociarUbicacionAMascota.js'
+import { verDireDeListaMascotas } from '../casosDeUso/verDireccionDeMascotas.js'
 
 const mascotasRouter = Router()
 
@@ -20,6 +21,15 @@ mascotasRouter.put('/agregarUbicacion', async (req, res) => {
         const mascota = await asociarUbicacion(req.body.idMascota, req.body.direccion)
         res.json(mascota)
 
+    } catch (error) {
+        res.status(400)
+        res.json({ error: error.message })
+    }
+})
+mascotasRouter.get('/verdireccionMascotas', async (req, res) => {
+    try {
+        const direMascotas = await verDireDeListaMascotas(req.body.mascotas)
+        res.json(direMascotas)
     } catch (error) {
         res.status(400)
         res.json({ error: error.message })
