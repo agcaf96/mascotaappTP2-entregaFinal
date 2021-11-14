@@ -10,7 +10,6 @@ Crear Mascota
 Post localhost:3000/api/mascotas
 
 {
-  
    "nombre":"Truman", 
    "edad":4, 
    "especie": "perro", 

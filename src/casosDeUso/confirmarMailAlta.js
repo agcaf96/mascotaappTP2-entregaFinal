@@ -9,7 +9,7 @@ async function confirmarRegistro(idPersona){
 
     const texto = "Registro Exitoso!"
     const asunto = "Confirmacion"
-
+    //Validar que exista la persona
     const persona = await daoPersonas.buscar(idPersona)
     const destinatario = persona.email
     console.log(destinatario)

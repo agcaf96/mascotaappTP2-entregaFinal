@@ -22,9 +22,12 @@ class DaoPersonasMongoDb extends DaoPersonas {
     async buscar(id) {
         let buscada
         try {
-
             await client.connect()
             buscada = await this.personas.findOne({ id })
+            console.log("Persona buscada ", buscada)
+            if (buscada == null) {
+                throw new Error("Persona no encontrada")
+            }
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
         } finally {

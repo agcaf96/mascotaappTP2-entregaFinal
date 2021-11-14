@@ -61,6 +61,9 @@ class Mascota {
         this.sexo = sexo
     }
     agregarImagen(imagen) {
+        if (!imagen || imagen == '') {
+            throw new Error('la ruta de la imagen no puede estar vacia')
+        }
         this.imagen = imagen;
     }
 

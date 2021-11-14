@@ -25,7 +25,9 @@ class DaoMascotasMongoDb extends DaoMascotas {
         try {
             await client.connect()
             buscada = await this.mascotas.findOne({ id })
-
+            if (buscada == null) {
+                throw new Error("Mascota no encontrada")
+            }
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
         } finally {

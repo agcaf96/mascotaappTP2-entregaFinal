@@ -5,8 +5,6 @@ import { getDaoMascotas } from '../daos/DaoFactoryMascotas.js'
 
 const daoMascotas = getDaoMascotas()
 
-
-
 async function crearMascota(nombre, edad, especie, color, sexo, idPersona) {
  try {
     const id = await daoMascotas.contarMascotas()
@@ -15,7 +13,6 @@ async function crearMascota(nombre, edad, especie, color, sexo, idPersona) {
     await daoMascotas.guardar(toDTO(mascota))
     await asociarMascota(mascota.id, idPersona)
     return mascota
-     
  } catch (error) {
      throw error
  }   

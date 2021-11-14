@@ -7,15 +7,16 @@ const l = getLocalizador()
 const daoMascotas = getDaoMascotas()
 
 async function asociarUbicacion(idMascota, direccion) {
-    const res = await l.convertirDireALat(direccion)
-    
-    const mascotaBuscada = await daoMascotas.buscar(idMascota)
 
-    const mo = fromDTO(mascotaBuscada)
-    
-    mo.asociarUbicacion(res)
-
-    await daoMascotas.guardar(toDTO(mo))
+    try {
+        const res = await l.convertirDireALat(direccion)
+        const mascotaBuscada = await daoMascotas.buscar(idMascota)
+        const mo = fromDTO(mascotaBuscada)
+        mo.asociarUbicacion(res)
+        await daoMascotas.guardar(toDTO(mo))
+    } catch (error) {
+        
+    }
 
     return mascotaBuscada
 }

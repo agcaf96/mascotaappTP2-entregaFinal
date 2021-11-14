@@ -67,13 +67,15 @@ class Persona {
         this.email = email
     }
 
-
     asignarMascota(id) {
-        this.mascotas.push(id)
+        const existeMascota = this.mascotas.includes(id)
+        console.log(existeMascota)
+        if (existeMascota) {
+            throw new Error("Ya existe esa mascota")
+        } else {
+            this.mascotas.push(id)
+        }
     }
-
-
-
 
 }
 
