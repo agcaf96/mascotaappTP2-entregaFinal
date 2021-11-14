@@ -3,7 +3,7 @@ class Email {
     this.setDestinario(destinatario);
     this.setAsunto(asunto);
     this.setText(texto)
-    this.from = "thalia.langosh57@ethereal.email"
+    this.from = "mascotaapp@info.com.ar"
   }
 
   setDestinario(destinario) {
