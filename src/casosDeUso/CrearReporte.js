@@ -6,7 +6,16 @@ const builderExcel = new getReporteExcelBuilder();
 
 
 async function crearReporte(mascos, nombrePlanilla, outputPath) {
-    await misMascotas.build(builderExcel, nombrePlanilla, mascos, outputPath)
+    if(mascos.length==0){
+        throw new Error("No hay mascotas")
+    }
+
+    try {
+        await misMascotas.build(builderExcel, nombrePlanilla, mascos, outputPath)    
+    } catch (error) {
+        throw error
+    }
+    
 }
 
 export { crearReporte }
