@@ -1,3 +1,4 @@
+asociar ubicacion
 PUT localhost:3000/api/mascotas/agregarUbicacion
 
 {
@@ -6,7 +7,7 @@ PUT localhost:3000/api/mascotas/agregarUbicacion
 }
 
 -----------------------------------------
-Crear Mascota
+Alta Mascota
 Post localhost:3000/api/mascotas
 
 {
@@ -18,7 +19,7 @@ Post localhost:3000/api/mascotas
    "idPersona":1
 }
 ----------------------------------------
-Crear Persona
+Alta Persona
 Post localhost:3000/api/personas
 
 {
@@ -89,4 +90,15 @@ Post localhost:3000/api/reporteExcel/reporteExcel
     ],
     "nombrePlanilla":"newExcel1",
     "outputPath":"newExcel1"
+}
+-------------
+Ver direccion de Mascotas
+Get localhost:3000/api/mascotas/verdireccionMascotas
+
+{
+  "mascotas": [
+    1,
+    2
+    
+  ]
 }
