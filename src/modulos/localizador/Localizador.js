@@ -8,8 +8,12 @@ class Localizador {
 
   async convertirDireALat(direccion){
     const url = `${this.urlBase}address?key=${this.key}&location=${direccion}`
-    const promise = await axios.get(url).then((response) => response.data.results)
-    const dire1 = promise[0]
+    const promise = await axios.get(url).then((response) => response)
+    if (promise.data.info.statuscode != 0 ) {
+      throw new Error ("Dirección inválida")
+    }
+    const resultados = promise.data.results
+    const dire1 = resultados[0]
     const latYLong = dire1.locations[0].latLng
     return latYLong
   }  
