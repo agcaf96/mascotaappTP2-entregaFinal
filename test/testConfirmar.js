@@ -1,13 +1,9 @@
 import { getDaoPersonas } from '../src/daos/DaoFactoryPersonas.js'
 import { confirmarRegistro } from "../src/casosDeUso/confirmarMailAlta.js"
-import { Roles } from '../src/modelos/Roles.js'
-import { crearPersona } from '../src/casosDeUso/altaDePersona.js'
 
 const usuario = getDaoPersonas()
 
-const p = await crearPersona("flor", 25, Roles.Administrador, "thalia.langosh57@ethereal.email")
-
-usuario.guardar(p)
+usuario.buscar(2)
 
 try {
     confirmarRegistro(p.id)
