@@ -46,7 +46,7 @@ personasRouter.get('/buscarMascotas', async (req, res) => {
 
 personasRouter.post('/confirmarMail', async (req, res) => {
     try {
-        confirmarRegistro(req.body.idPersona)
+        await confirmarRegistro(req.body.idPersona)
         res.json("confirmacion ok")
 
     } catch (error) {
