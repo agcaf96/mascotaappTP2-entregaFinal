@@ -7,7 +7,7 @@ PUT localhost:3000/api/mascotas/agregarUbicacion
 
 -----------------------------------------
 Crear Mascota
-localhost:3000/api/mascotas
+Post localhost:3000/api/mascotas
 
 {
   
@@ -20,7 +20,7 @@ localhost:3000/api/mascotas
 }
 ----------------------------------------
 Crear Usuario
-localhost:3000/api/personas
+Post localhost:3000/api/personas
 
 {
    "nombre":"Fede", 
@@ -30,15 +30,15 @@ localhost:3000/api/personas
 }
 -------------------------------------
 Asociar mascota a una persona
-localhost:3000/api/personas/agregarMascota
+Put localhost:3000/api/personas/agregarMascota
 
 {
    "idmascota": 2, 
    "idPersona": 1
 }
 -----------------------------------
-Busca lista de mascotas por usuario
-localhost:3000/api/personas/buscarMascotas
+ Busca lista de mascotas por usuario
+Get localhost:3000/api/personas/buscarMascotas
 
 
 {
@@ -46,7 +46,7 @@ localhost:3000/api/personas/buscarMascotas
 }
 ---------------------------------------
 Reporte de mascotas 
-localhost:3000/api/reporteExcel/reporteExcel
+Post localhost:3000/api/reporteExcel/reporteExcel
 
 {
     "mascotas":[
