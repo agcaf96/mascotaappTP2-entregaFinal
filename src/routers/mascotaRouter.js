@@ -11,6 +11,7 @@ mascotasRouter.post('/', async (req, res) => {
         res.json(mascota)
 
     } catch (error) {
+        res.status(400)
         res.json({ error: error.message })
     }
 })
@@ -21,6 +22,7 @@ mascotasRouter.put('/agregarUbicacion', async (req, res) => {
         res.json(mascota)
 
     } catch (error) {
+        res.status(400)
         res.json({ error: error.message })
     }
 })

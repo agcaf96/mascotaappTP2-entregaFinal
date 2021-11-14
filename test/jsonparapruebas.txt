@@ -19,13 +19,15 @@ Post localhost:3000/api/mascotas
    "idPersona":1
 }
 ----------------------------------------
-Crear Usuario
+Crear Persona
 Post localhost:3000/api/personas
 
 {
-   "nombre":"Fede", 
-   "edad":34, 
-   "rol": "administrador"
+   "nombre":"Flor", 
+   "edad":30, 
+   "rol": "ADMINISTRADOR",
+   "mascotas":[],
+   "email":"a@a.com"
 
 }
 -------------------------------------

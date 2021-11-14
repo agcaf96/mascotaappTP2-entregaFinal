@@ -27,7 +27,7 @@ class DaoPersonasMongoDb extends DaoPersonas {
             buscada = await this.personas.findOne({ id })
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
-        }finally{
+        } finally {
             await client.close()
         }
 
@@ -36,6 +36,22 @@ class DaoPersonasMongoDb extends DaoPersonas {
         return buscada
     }
 
+    async contarPersonas() {
+
+        let ultimoId
+        try {
+            await client.connect()
+            ultimoId = await this.personas.count({})
+            console.log(ultimoId)
+        } catch (error) {
+            throw new Error('DB_ERROR: ' + error.message)
+        } finally {
+            await client.close()
+        }
+        return ultimoId
+    }
+
+
     async guardar(persona) {
         try {
 
@@ -43,7 +59,7 @@ class DaoPersonasMongoDb extends DaoPersonas {
             await this.personas.replaceOne({ id: persona.id }, { ...persona }, { upsert: true })
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
-        }finally{
+        } finally {
             await client.close()
         }
     }

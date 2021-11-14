@@ -25,10 +25,10 @@ class DaoMascotasMongoDb extends DaoMascotas {
         try {
             await client.connect()
             buscada = await this.mascotas.findOne({ id })
-            
+
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
-        }finally{
+        } finally {
             await client.close()
         }
 
@@ -37,13 +37,29 @@ class DaoMascotasMongoDb extends DaoMascotas {
         return buscada
     }
 
+   
+    async contarMascotas() {
+
+        let ultimoId
+        try {
+            await client.connect()
+            ultimoId = await this.mascotas.count({})
+            console.log(ultimoId)
+        } catch (error) {
+            throw new Error('DB_ERROR: ' + error.message)
+        } finally {
+            await client.close()
+        }
+        return ultimoId
+    }
+
     async guardar(mascota) {
         try {
             await client.connect()
             await this.mascotas.replaceOne({ id: mascota.id }, { ...mascota }, { upsert: true })
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
-        }finally{
+        } finally {
             await client.close()
         }
     }

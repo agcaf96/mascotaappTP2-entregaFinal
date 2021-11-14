@@ -8,11 +8,17 @@ const daoMascotas = getDaoMascotas()
 
 
 async function crearMascota(nombre, edad, especie, color, sexo, idPersona) {
-    const id = Mascota.nextId()
-    const mascota = new Mascota(id, nombre, edad, especie, color, sexo)
+ try {
+    const id = await daoMascotas.contarMascotas()
+    const idF = id+1 
+    const mascota = new Mascota(idF, nombre, edad, especie, color, sexo)
     await daoMascotas.guardar(toDTO(mascota))
     await asociarMascota(mascota.id, idPersona)
     return mascota
+     
+ } catch (error) {
+     throw error
+ }   
 }
 
 export { crearMascota }

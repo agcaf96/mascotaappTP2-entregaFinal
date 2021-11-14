@@ -1,5 +1,5 @@
 class Mascota {
-    constructor(id = null, nombre, edad, especie, color, sexo, ubicacion  = {}) {
+    constructor(id = null, nombre, edad, especie, color, sexo, ubicacion = {}) {
         this.id = id
         this.setNombre(nombre)
         this.setColor(color)
@@ -13,31 +13,41 @@ class Mascota {
 
     setEdad(edad) {
         const num = Number(edad)
-        if (isNaN(num)) {
+        if (isNaN(edad)) {
             throw new Error('la edad debe ser numerica')
         }
         if (num <= 0) {
             throw new Error('la edad debe ser positiva')
         }
-        this.edad = edad
+        this.edad = num
     }
 
     setNombre(nombre) {
         if (!nombre || nombre == '') {
             throw new Error('el nombre no puede ser nulo ni vacío')
         }
+        if (!isNaN(nombre)) {
+            throw new Error('el nombre no puede ser numerico ')
+        }
         this.nombre = nombre
     }
-    
+
     setColor(color) {
         if (!color || color == '') {
             throw new Error('el color no puede ser nulo ni vacío')
         }
+        if (!isNaN(color)) {
+            throw new Error('el color no puede ser numerico ')
+        }
+
         this.color = color
     }
     setEspecie(especie) {
         if (!especie || especie == '') {
             throw new Error('la especie no puede ser nula ni vacía')
+        }
+        if (!isNaN(especie)) {
+            throw new Error('el especie no puede ser numerico ')
         }
         this.especie = especie
     }
@@ -45,25 +55,23 @@ class Mascota {
         if (!sexo || sexo == '') {
             throw new Error('el sexo no puede ser nulo ni vacío')
         }
+        if (!isNaN(sexo)) {
+            throw new Error('el sexo no puede ser numerico ')
+        }
         this.sexo = sexo
     }
-    agregarImagen(imagen){
+    agregarImagen(imagen) {
         this.imagen = imagen;
     }
 
     asociarUbicacion(ubicacion) {
         this.ubicacion = ubicacion
     }
-
-    static ultimoId = 0
-
-    static nextId() {
-        return ++Mascota.ultimoId
-    }
+  
 }
 
 function fromDTO(dto) {
-    return new Mascota(dto.id, dto.nombre, dto.edad, dto.especie, dto.color, dto.sexo, dto.estado,dto.imagen, dto.ubicacion )
+    return new Mascota(dto.id, dto.nombre, dto.edad, dto.especie, dto.color, dto.sexo, dto.estado, dto.imagen, dto.ubicacion)
 }
 
 function toDTO(mascota) {
