@@ -102,3 +102,8 @@ Get localhost:3000/api/mascotas/verdireccionMascotas
     
   ]
 }
+------------------------------
+Confirmar mail 
+Post localhost:3000/api/personas/confirmarMail
+
+{"idPersona" : 2}
