@@ -9,18 +9,21 @@ class ReporteEnExcelBuilder {
 
 
     crearPagina(nombreDePagina) {
+        if (!nombreDePagina || nombreDePagina=="") {
+            throw new Error('EL nombre de la pagina no puede estar vacio');
+        }
         let worksheet = this.workbook.getWorksheet(nombreDePagina);
         if (!worksheet) {
             worksheet = this.workbook.addWorksheet(nombreDePagina);
         } else {
-            throw new Error('nombre de pagina ya existe');
+            throw new Error('Nombre de pagina ya existe');
         }
     }
 
     getWorksheet(nombreDePagina) {
         const worksheet = this.workbook.getWorksheet(nombreDePagina);
         if (!worksheet) {
-            throw new Error('nombre de pagina invalido');
+            throw new Error('Nombre de pagina invalido');
         }
         return worksheet;
     }
@@ -35,12 +38,13 @@ class ReporteEnExcelBuilder {
             }
             
         }else{
-            throw new Error('nombre de pagina invalido');
+            throw new Error('Nombre de pagina invalido');
 
         }
     }
 
     escribirEnFilaObjeto(nombreDePagina, filaDesde, colDesde, contenido) {
+      
         const worksheet = this.getWorksheet(nombreDePagina);
         if (contenido) {
             let i = 0
@@ -68,7 +72,9 @@ class ReporteEnExcelBuilder {
     }
 
     async guardarArchivo(filePath) {
-        
+        if (!filePath|| filePath =="") {
+            throw new Error("El nombre del archivo no puede estar vacio")
+        }
         const archivo = `../src/assets/reportes/${filePath}.xlsx`
         console.log(archivo)
         await this.workbook.xlsx.writeFile(archivo);

@@ -10,6 +10,7 @@ reporteExcelRouter.post('/reporteExcel', async (req, res) => {
         res.json("Excel creado: " + req.body.outputPath)
 
     } catch (error) {
+        res.status(400)
         res.json({ error: error.message })
     }
 
