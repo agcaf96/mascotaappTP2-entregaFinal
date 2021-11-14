@@ -15,6 +15,10 @@ class DaoPersonasMem extends DaoPersonas {
         }
     }
 
+    async contarPersonas(){
+        return this.personas.length
+    }
+
     async guardar(persona) {
         const index = this.personas.findIndex(p => p.id === persona.id)
         if (index == -1) {
@@ -24,14 +28,6 @@ class DaoPersonasMem extends DaoPersonas {
         }
     }
 
-    async eliminar(persona) {
-        const index = this.personas.findIndex(p => p.id === persona.id)
-        if (index == -1) {
-            this.personas.remove(persona)
-        } else {
-            this.personas[ index ] = persona
-        }
-    }
 }
 
 export default DaoPersonasMem

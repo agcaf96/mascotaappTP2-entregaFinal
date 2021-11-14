@@ -7,6 +7,10 @@ class DaoMascotas {
     async guardar() {
         throw new Error('falta implementar')
     }
+
+    async contarMascotas(){
+        throw new Error('falta implementar')    
+    }
 }
 
 export default DaoMascotas

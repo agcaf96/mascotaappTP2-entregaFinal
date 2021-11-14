@@ -15,6 +15,9 @@ class DaoMascotasMem extends DaoMascotas {
         }
     }
 
+    async contarMascotas(){
+        return this.mascotas.length
+    }
     async guardar(mascota) {
         const index = this.mascotas.findIndex(p => p.id === mascota.id)
         if (index == -1) {
@@ -24,14 +27,7 @@ class DaoMascotasMem extends DaoMascotas {
         }
     }
     
-    async eliminar(mascota) {
-        const index = this.mascotas.findIndex(p => p.id === mascota.id)
-        if (index == -1) {
-            this.mascotas.remove(mascota)
-        } else {
-            this.mascotas[ index ] = mascota
-        }
-    }
+
 }
 
 
