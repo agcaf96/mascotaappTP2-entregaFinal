@@ -5,21 +5,23 @@ const l = getLocalizador()
 const daoMascotas = getDaoMascotas()
 
 async function verDireDeListaMascotas(mascotas) {
+    
     if (mascotas.length == 0) {
         throw new Error("No hay mascotas")
     }
+
     try {
         const arrayDire = []
      
         for (const idMascota of mascotas) {
             const mascotaBuscada = await daoMascotas.buscar(idMascota)
-            let ubicacionx = mascotaBuscada.ubicacion
-            console.log(ubicacionx)
+            let ubicacion = mascotaBuscada.ubicacion
 
-
-            if (ubicacionx.hasOwnProperty("lat")) {
-                const direccion = await l.convertirLatADire(ubicacionx)
+            if (ubicacion.hasOwnProperty("lat")) {
+                const direccion = await l.convertirLatADire(ubicacion)
                 arrayDire.push({ nombre: mascotaBuscada.nombre, direccion: direccion })
+            } else {
+                arrayDire.push({ nombre: mascotaBuscada.nombre, direccion: "N/A" })
             }
         }
         return arrayDire

@@ -6,28 +6,37 @@ class Localizador {
     this.urlBase = urlBase;
   }
 
-  async convertirDireALat(direccion){
+  async convertirDireALat(direccion) {
     const url = `${this.urlBase}address?key=${this.key}&location=${direccion}`
-    const promise = await axios.get(url).then((response) => response)
-    if (promise.data.info.statuscode != 0 ) {
-      throw new Error ("Dirección inválida")
-    }
-    const resultados = promise.data.results
-    const dire1 = resultados[0]
-    const latYLong = dire1.locations[0].latLng
-    return latYLong
-  }  
-  
-  async convertirLatADire(coordenadas){
-    const url = `${this.urlBase}reverse?key=${this.key}&location=${coordenadas.lat},${coordenadas.lng}&locale=es_MX`
-    let calle 
+
     try {
-      const promise = await axios.get(url).then((response) => response.data.results);
-      const dire1 = promise[0]
-     
-      calle = dire1.locations[0].street
+      const promise = await axios.get(url).then((response) => response)
+      if (promise.data.info.statuscode != 0) {
+        throw new Error("Dirección inválida")
+      }
+      const latYLong = promise.data.results[0].locations[0].latLng
+      return latYLong
     } catch (error) {
-        throw new Error(`ERROR LOCALIZADOR: ${error.message}`)
+      throw new Error(`ERROR LOCALIZADOR: ${error.message}`)
+    }
+  }
+
+  async convertirLatADire(coordenadas) {
+    const url = `${this.urlBase}reverse?key=${this.key}&location=${coordenadas.lat},${coordenadas.lng}&locale=es_MX`
+    let calle
+    try {
+      const promise = await axios.get(url).then((response) => response);
+
+      if (promise.data.info.statuscode != 0) {
+        throw new Error("Dirección inválida")
+      }
+
+      const dire = promise.data.results[0].locations[0].street
+      const direaux = dire.split(" ")
+      calle = `${direaux[1]} ${direaux[0]}`
+
+    } catch (error) {
+      throw new Error(`ERROR LOCALIZADOR: ${error.message}`)
     }
     return calle
   }
