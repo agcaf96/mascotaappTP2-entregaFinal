@@ -10,11 +10,12 @@ async function asociarUbicacion(idMascota, direccion) {
 
     try {
         const res = await l.convertirDireALat(direccion)
+        console.log("res",res)
         const mascotaBuscada = await daoMascotas.buscar(idMascota)
         const mo = fromDTO(mascotaBuscada)
         mo.asociarUbicacion(res)
         await daoMascotas.guardar(toDTO(mo))
-        return mascotaBuscada
+        return mo
     } catch (error) {
         throw error
     }
