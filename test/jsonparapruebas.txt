@@ -44,7 +44,15 @@ Get localhost:3000/api/personas/buscarMascotas
 
 
 {
-    "idPersona": 3
+    "idPersona": 2
+}
+
+------------------------------
+Publicar imagen
+Post localhost:3000/Upload
+{
+  "id": 1, 
+  "fotito": algo.jpg
 }
 ---------------------------------------
 Reporte de mascotas 
@@ -108,10 +116,3 @@ Post localhost:3000/api/personas/confirmarMail
 
 {"idPersona" : 2}
 
-------------------------------
-Publicar imagen
-Post localhost:3000/Upload
-{
-  "id": 1, 
-  "fotito": algo.jpg
-}
