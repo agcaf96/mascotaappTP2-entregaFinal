@@ -9,18 +9,21 @@ const direccion = getCreateFileExtractor()
 
 publicadorDeImagen.post('/', direccion, async (req, res) => {
     try {
-        console.log(req.body);
+        if (req.files == null) {
+            throw new Error("No mandaste fotito")
+        }
         //cart to number
-        const idMascota = +req.body.idMascota
-        await asociarFotoAMascota(idMascota, `/assets/recibidas/${idMascota}.jpg`)
+        const idMas = +req.body.id
+        await asociarFotoAMascota(idMas, `/assets/recibidas/${idMas}.jpg`)
         res.json("foto subida OK")
     } catch (error) {
         res.status(400)
         res.json({ error: error.message })
-        const idMascotaCatch = +req.body.idMascota
-        const path = `./assets/recibidas/${idMascotaCatch}.jpg`
-        fs.unlinkSync(path)
-        
+        const idMascotaCatch = +req.body.id
+        if (error.message == "DB_ERROR: Mascota no encontrada") {
+            const path = `./assets/recibidas/${idMascotaCatch}.jpg`
+            fs.unlinkSync(path)
+        }
     }
 
 })

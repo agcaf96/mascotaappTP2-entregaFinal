@@ -11,7 +11,7 @@ export function createFileExtractorMiddleware(filesPath) {
             for (const nombreImagen in req.files) {
                 try {
                     const imagen = req.files[ nombreImagen ]
-                    const idMasc = req.body.idMascota
+                    const idMasc = req.body.id
                     const filename = `${filesPath}/${idMasc}.jpg`
                     imagen.mv(filename)
                     filenames.push(filename)
