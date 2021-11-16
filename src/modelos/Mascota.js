@@ -1,13 +1,13 @@
 class Mascota {
-    constructor(id = null, nombre, edad, especie, color, sexo, ubicacion = {}) {
+    constructor(id = null, nombre, edad, especie, color, sexo, estado = 'Publicado' ,imagen="", ubicacion = {}) {
         this.id = id
         this.setNombre(nombre)
         this.setColor(color)
         this.setEdad(edad)
         this.setEspecie(especie)
         this.setSexo(sexo)
-        this.estado = 'Publicado';
-        this.imagen = ""
+        this.estado = estado;
+        this.imagen = imagen;
         this.ubicacion = ubicacion
     }
 

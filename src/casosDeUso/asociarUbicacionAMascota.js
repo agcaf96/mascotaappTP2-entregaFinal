@@ -14,7 +14,7 @@ async function asociarUbicacion(idMascota, direccion) {
         const mo = fromDTO(mascotaBuscada)
         mo.asociarUbicacion(res)
         await daoMascotas.guardar(toDTO(mo))
-        return mascotaBuscada
+        return mo
     } catch (error) {
         throw error
     }
