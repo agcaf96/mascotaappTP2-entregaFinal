@@ -1,5 +1,5 @@
 import { getDaoMascotas } from '../daos/DaoFactoryMascotas.js'
-
+import  { fromDTO, toDTO }  from '../modelos/Mascota.js'
 
 const daoMascotas = getDaoMascotas()
 export async function asociarFotoAMascota(idMascota, rutaImagen) {
