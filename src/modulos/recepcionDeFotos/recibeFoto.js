@@ -1,7 +1,7 @@
 import fileUpload from 'express-fileupload'
 
 export function createFileExtractorMiddleware(filesPath) {
-    const extractFiles = (req, res, next) => {
+    const archivos = (req, res, next) => {
         const fuMid = fileUpload({ createParentPath: true })
         fuMid(req, res, () => {
             let uploaded = 0
@@ -25,5 +25,5 @@ export function createFileExtractorMiddleware(filesPath) {
         })
     }
 
-    return extractFiles
+    return archivos
 }

@@ -8,11 +8,11 @@ const publicadorDeImagen = Router()
 const direccion = getCreateFileExtractor()
 
 publicadorDeImagen.post('/', direccion, async (req, res) => {
-    try {
+ try {
         if (req.files == null) {
             throw new Error("No mandaste fotito")
         }
-        //cart to number
+        //cast to number
         const idMas = +req.body.id
         await asociarFotoAMascota(idMas, `/assets/recibidas/${idMas}.jpg`)
         res.json("foto subida OK")

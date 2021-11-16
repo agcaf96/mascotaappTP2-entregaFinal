@@ -1,8 +1,8 @@
 import {createFileExtractorMiddleware} from "./recibeFoto.js";
 import { direccionFotos } from "../../config.js";
 
-const middlw = new createFileExtractorMiddleware(direccionFotos)
+const funcionM = new createFileExtractorMiddleware(direccionFotos)
 
 export function getCreateFileExtractor(){
-    return middlw
+    return funcionM
 }
