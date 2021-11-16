@@ -69,7 +69,7 @@ class Persona {
 
     asignarMascota(id) {
         const existeMascota = this.mascotas.includes(id)
-        console.log(existeMascota)
+
         if (existeMascota) {
             throw new Error("Ya existe esa mascota")
         } else {

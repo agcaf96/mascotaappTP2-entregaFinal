@@ -61,7 +61,6 @@ class ReporteEnExcelBuilder {
 
     escribirEnColumna(nombreDePagina, filaDesde, colDesde, contenido) {
         const worksheet = this.getWorksheet(nombreDePagina);
-        console.log(contenido.keys.length)
         if (contenido) {
             for (let i = 0; i < contenido.length; i++) {
                 const cell = worksheet.getCell(filaDesde + i, colDesde);
@@ -76,9 +75,7 @@ class ReporteEnExcelBuilder {
             throw new Error("El nombre del archivo no puede estar vacio")
         }
         const archivo = `../src/assets/reportes/${filePath}.xlsx`
-        console.log(archivo)
         await this.workbook.xlsx.writeFile(archivo);
-        console.log("Creado")
     }
 }
 

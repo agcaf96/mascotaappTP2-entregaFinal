@@ -46,7 +46,6 @@ class DaoMascotasMongoDb extends DaoMascotas {
         try {
             await client.connect()
             ultimoId = await this.mascotas.count({})
-            console.log(ultimoId)
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
         } finally {

@@ -24,7 +24,6 @@ class DaoPersonasMongoDb extends DaoPersonas {
         try {
             await client.connect()
             buscada = await this.personas.findOne({ id })
-            console.log("Persona buscada ", buscada)
             if (buscada == null) {
                 throw new Error("Persona no encontrada")
             }
@@ -45,7 +44,6 @@ class DaoPersonasMongoDb extends DaoPersonas {
         try {
             await client.connect()
             ultimoId = await this.personas.count({})
-            console.log(ultimoId)
         } catch (error) {
             throw new Error('DB_ERROR: ' + error.message)
         } finally {
