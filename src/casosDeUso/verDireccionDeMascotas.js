@@ -21,7 +21,7 @@ async function verDireDeListaMascotas(mascotas) {
                 const direccion = await l.convertirLatADire(ubicacion)
                 arrayDire.push({ nombre: mascotaBuscada.nombre, direccion: direccion })
             } else {
-                arrayDire.push({ nombre: mascotaBuscada.nombre, direccion: "N/A" })
+                arrayDire.push({ nombre: mascotaBuscada.nombre, direccion: "Mascota sin dirección" })
             }
         }
         return arrayDire
