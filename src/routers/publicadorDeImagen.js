@@ -12,7 +12,7 @@ publicadorDeImagen.post('/', direccion, async (req, res) => {
         if (req.files == null) {
             throw new Error("No mandaste fotito")
         }
-        //cast to number
+        //cast to number -- cambiar el cast por otra forma
         const idMas = +req.body.id
         await asociarFotoAMascota(idMas, `/assets/recibidas/${idMas}.jpg`)
         res.json("foto subida OK")
