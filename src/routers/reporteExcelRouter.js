@@ -6,7 +6,7 @@ const reporteExcelRouter = Router()
 reporteExcelRouter.post('/reporteExcel', async (req, res) => {
     try {
 
-        await crearReporte(req.body.mascotas, req.body.nombrePlanilla, req.body.outputPath)
+        await crearReporte(req.body.idUsuario, req.body.nombrePlanilla, req.body.outputPath)
         res.json("Excel creado: " + req.body.outputPath)
 
     } catch (error) {

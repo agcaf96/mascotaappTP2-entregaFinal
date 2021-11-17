@@ -5,19 +5,17 @@ const daoMascotas = getDaoMascotas();
 const daoPersonas = getDaoPersonas();
 
 async function buscarMascotasporUsuario(idPersona) {
-    try {
-        const persona = await daoPersonas.buscar(idPersona)
+
+    const persona = await daoPersonas.buscar(idPersona)
     const masco = []
     for (let index = 0; index < persona.mascotas.length; index++) {
         masco.push(await daoMascotas.buscar(persona.mascotas[index]))
     }
- 
+
     return masco
-        
-    } catch (error) {
-        throw error
-    }
-    
+
+
+
 }
 
-export { buscarMascotasporUsuario}
+export { buscarMascotasporUsuario }

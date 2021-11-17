@@ -27,10 +27,10 @@ try {
 
 
     // const persona1c = await daoPersonas.buscar(persona1b.id)
-    const mascotas = await buscarMascotasporUsuario( 2)
-    console.log(mascotas);
+   // const mascotas = await buscarMascotasporUsuario( 2)
+    //console.log(mascotas);
     
-    await crearReporte(mascotas, 'persona2', 'reporte2')
+    await crearReporte(2, 'persona2', 'reporte2')
     
 
 } catch (error) {

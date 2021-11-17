@@ -1,21 +1,16 @@
 import { getReporteExcelBuilder } from '../Modulos/reporteBuilder/index.js'
 import { getReporteDeMascotas } from '../Modulos/ReporteMascotas/index.js'
+import { buscarMascotasporUsuario } from '../casosDeUso/buscarMascotasPorUsuario.js'
 
 const misMascotas = new getReporteDeMascotas();
 const builderExcel = new getReporteExcelBuilder();
 
 
-async function crearReporte(mascos, nombrePlanilla, outputPath) {
-    if(mascos.length==0){
-        throw new Error("No hay mascotas")
-    }
+async function crearReporte(idUsuario, nombrePlanilla, outputPath) {
 
-    try {
-        await misMascotas.build(builderExcel, nombrePlanilla, mascos, outputPath)    
-    } catch (error) {
-        throw error
-    }
-    
+    const mascos = await buscarMascotasporUsuario(idUsuario)
+    await misMascotas.build(builderExcel, nombrePlanilla, mascos, outputPath)
+     
 }
 
 export { crearReporte }
