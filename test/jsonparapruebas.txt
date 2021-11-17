@@ -49,7 +49,7 @@ Get localhost:3000/api/personas/buscarMascotas
 
 ------------------------------
 Publicar imagen
-Post localhost:3000/Upload
+Post localhost:3000/imagenes
 {
   "id": 1, 
   "fotito": algo.jpg
@@ -59,43 +59,7 @@ Reporte de mascotas
 Post localhost:3000/api/reporteExcel/reporteExcel
 
 {
-    "mascotas":[
-      {
-    "id": 4,
-    "nombre": "pepo",
-    "edad": 1,
-    "especie": "perro",
-    "color": "blanco",
-    "sexo": "macho",
-    "estado": "Publicado",
-    "imagen": ""
-  },
-  {
-    "id": 2,
-    "nombre": "pompon",
-    "edad": 5,
-    "especie": "gato",
-    "color": "gris",
-    "sexo": "macho",
-    "estado": "Publicado",
-    "imagen": "",
-    "ubicacion": {
-      "lat": -34.60669,
-      "lng": -58.429266
-    }
-  },
-  {
-    "id": 1,
-    "nombre": "Truman",
-    "edad": 4,
-    "especie": "perro",
-    "color": "rubio",
-    "sexo": "macho",
-    "estado": "Publicado",
-    "imagen": "",
-    "ubicacion": {}
-  }  
-    ],
+    "idUsuario":1,
     "nombrePlanilla":"newExcel1",
     "outputPath":"newExcel1"
 }
