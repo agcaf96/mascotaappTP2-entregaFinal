@@ -8,18 +8,13 @@ const daoMascotas = getDaoMascotas()
 
 async function asociarUbicacion(idMascota, direccion) {
 
-    try {
-        const res = await l.convertirDireALat(direccion)
-        console.log("res",res)
-        const mascotaBuscada = await daoMascotas.buscar(idMascota)
-        const mo = fromDTO(mascotaBuscada)
-        mo.asociarUbicacion(res)
-        await daoMascotas.guardar(toDTO(mo))
-        return mo
-    } catch (error) {
-        throw error
-    }
+    const res = await l.convertirDireALat(direccion)
+    const mascotaBuscada = await daoMascotas.buscar(idMascota)
+    const mo = fromDTO(mascotaBuscada)
+    mo.asociarUbicacion(res)
+    await daoMascotas.guardar(toDTO(mo))
+    return mo
 
 }
 
-export {asociarUbicacion}
+export { asociarUbicacion }
