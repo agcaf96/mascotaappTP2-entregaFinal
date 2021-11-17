@@ -9,7 +9,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/upload', publicadorDeImagen)
+app.use('/imagenes', publicadorDeImagen)
 app.use('/api/personas', personasRouter)
 app.use('/api/mascotas', mascotasRouter)
 app.use('/api/reporteExcel', reporteExcelRouter)
