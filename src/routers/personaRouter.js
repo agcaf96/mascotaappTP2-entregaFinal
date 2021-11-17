@@ -44,7 +44,7 @@ personasRouter.get('/buscarMascotas', async (req, res) => {
     }
 })
 
-personasRouter.post('/confirmarMail', async (req, res) => {
+personasRouter.post('/confirmaciones', async (req, res) => {
     try {
         await confirmarRegistro(req.body.idPersona)
         res.json("confirmacion ok")
