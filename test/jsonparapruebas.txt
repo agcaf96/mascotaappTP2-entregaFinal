@@ -49,7 +49,7 @@ Get localhost:3000/api/personas/buscarMascotas
 
 ------------------------------
 Publicar imagen
-Post localhost:3000/Upload
+Post localhost:3000/imagenes
 {
   "id": 1, 
   "fotito": algo.jpg
